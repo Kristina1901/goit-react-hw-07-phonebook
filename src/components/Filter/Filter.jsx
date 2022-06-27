@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from 'redux/contacts/contacts-selectors';
 import { filterContacts } from 'redux/contacts/contacts-filterSlice';
-import s from './Filter.module.css';
 
 const Filter = () => {
   const filter = useSelector(getFilter);
@@ -11,14 +10,16 @@ const Filter = () => {
 
   return (
     <>
-      <label className={s.label}>
-        Find contacts by name
+      <label>
         <input
+          placeholder="Enter to search..."
           type="text"
           name="filter"
-          className={s.input}
           value={filter}
           onChange={handleChange}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          required
         />
       </label>
     </>

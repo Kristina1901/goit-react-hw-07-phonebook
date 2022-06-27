@@ -14,21 +14,24 @@ const ContactForm = () => {
   const [createContact] = useCreateContactMutation();
 
   const handleChange = e => {
-    const { value, name } = e.target;
+    const field = e.currentTarget.name;
 
-    if (name === 'name') {
-      setName(value);
-    }
-
-    if (name === 'number') {
-      setNumber(value);
+    switch (field) {
+      case 'name':
+        setName(e.currentTarget.value);
+        break;
+      case 'number':
+        setNumber(e.currentTarget.value);
+        break;
+      default:
+        throw new Error();
     }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (contacts.find(contact => contact.name === name)) {
+    if (contacts.find(contact => contact.name.toLowerCase() === name)) {
       toast.error(`${name} is already in contacts`);
       resetForm();
       return;
@@ -48,9 +51,10 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <label>
+      <label className={s.label}>
         Name
         <input
+          className={s.namefirst}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -61,9 +65,10 @@ const ContactForm = () => {
         />
       </label>
 
-      <label>
+      <label className={s.label}>
         Number
         <input
+          className={s.input}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

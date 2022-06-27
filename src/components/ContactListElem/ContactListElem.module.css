@@ -1,38 +1,39 @@
-.listItem {
+.wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
-  font-size: 16px;
 }
-
-.name {
-  margin-right: 5px;
-}
-
-.number {
-  margin-right: 10px;
-  font-style: italic;
-}
-
-.button {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 16px;
-  text-align: center;
+.link {
+  display: flex;
   text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #2ee59d;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all ease 250ms;
+}
+.text {
+  margin-right: 10px;
+  color: azure;
+  font-family: 'Cantarell';
+  font-size: 19px;
+}
+.number {
+  color: azure;
+  font-family: 'Cantarell';
+  font-size: 19px;
+}
+.button {
+  margin-left: 20px;
+  width: 100px;
+  height: 30px;
+  background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+  border-radius: 10%;
+  border: #f7797d;
+  color: azure;
+  font-family: 'Cantarell';
+  font-size: 15px;
 }
 
-.button:hover,
+.button:hover {
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+}
+
 .button:focus {
-  background-color: #17c580;
-}
-
-.button:active {
-  transform: translateY(2px);
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
 }

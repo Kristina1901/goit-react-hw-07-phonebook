@@ -1,7 +1,6 @@
-.contacts {
-  padding-left: 40px;
-}
-
-.contactsItem:not(:last-child) {
-  margin-bottom: 10px;
+.item {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 8px;
 }

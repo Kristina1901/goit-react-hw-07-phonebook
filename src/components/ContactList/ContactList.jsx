@@ -18,10 +18,10 @@ const ContactList = () => {
     contacts.filter(({ name }) => name.toLowerCase().includes(normalizeFilter));
 
   return (
-    <ul className={s.contacts}>
+    <ul className={s.list}>
       {contacts &&
         filteredContacts.map(({ name, id, phone }) => (
-          <li key={id} className={s.contactsItem}>
+          <li key={id} className={s.item}>
             <ContactListElem
               name={name}
               number={phone}

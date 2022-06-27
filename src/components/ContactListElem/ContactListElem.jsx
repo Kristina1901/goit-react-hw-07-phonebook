@@ -3,10 +3,19 @@ import s from './ContactListElem.module.css';
 
 const ContactListElem = ({ name, number, onDelete }) => {
   return (
-    <div className={s.listItem}>
-      <p className={s.name}>{name}:</p>
-      <span className={s.number}>{number}</span>
-      <button type="button" className={s.button} onClick={onDelete}>
+    <div className={s.wrapper}>
+      <a className={s.link} href="tel:{number}">
+        <p className={s.text}>{name}</p>
+        <div>
+          <p className={s.number}>{number}</p>
+        </div>
+      </a>
+      <button
+        className={s.button}
+        type="button"
+        onClick={onDelete}
+        aria-label="delete contact"
+      >
         Delete
       </button>
     </div>
