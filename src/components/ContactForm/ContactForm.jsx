@@ -33,7 +33,7 @@ const ContactForm = () => {
 
     if (contacts.find(contact => contact.name.toLowerCase() === name)) {
       toast.error(`${name} is already in contacts`);
-      resetForm();
+      // resetForm();
       return;
     }
 
